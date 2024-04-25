@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="script.js">
+  <link rel="icon" type="image/x-icon" href="{% static 'image/logo1.jpg' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+
+</head>
+
+<body>
+
+
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "7d87e890-4778-4e79-952b-3cbbbdead925", // The ID of this integration.
+      region: "eu-gb", // The region your integration is hosted in.
+      serviceInstanceID: "49f0a729-67fe-472b-96f6-5847d30ddae0", // The ID of your service instance.
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+  <div class="navbar">
+    <a href="womensafety.html"><i class="fa fa-fw "></i><img src="{% static 'image/logo1.jpg' %}" height="30px"></a>
+    <a class="active" href="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-fw fa-home"></i> About Us  <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/cybercrime">Cyber Crime</a>
+        <a href="/domestic">Domestic Vi...</a>
+        <a href="/eveteasing">Eve Teasing</a>
+        <a href="/harrasment">Harrasment</a>
+        <a href="/helpdesk">Help Desk</a>
+        <a href="/legally">Legally Ad.....</a>
+        <a href="/schemes">Schemes</a>
+      </div>
+    </div>
+    <a href="/helpline"><i class="fa fa-phone-square"></i>  Helpline</a>
+    <a href="/contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+
+    {% if user.is_authenticated %}
+    <a href="#" style="font-size: 20px;"> <i class="fa fa-user-circle"></i>Hello, {{ user.username }}</a>
+    <a href="logout" style="font-size: 20px;"><i class="fa fa-sign-out"></i>Logout</a>
+    {% else %}
+    <a href="/signup"><i class="fa fa-sign-in"></i> Sign Up</a>
+    <a href="/login"><i class="fa fa-fw fa-user"></i> Login</a>
+    {% endif%}
+    <a href="/feedback"> <i class="fa fa-comment"></i>Feedback</a>
+  </div>
+
+
+{% comment %} SESSIONS {% endcomment %}
+{{request.session.call}}
+
+
+
+  <H1 style="border: 3px solid black;">
+    <marquee class="blink" >WOMEN SAFETY</marquee>
+  </H1>
+
+  <div class="slideshow-container" style="border: 4px solid black;">
+
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 6</div>
+      <img src="{% static 'image/p1.jpg' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 6</div>
+      <img src="{% static 'image/p2.jpg' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 6</div>
+      <img src="{% static 'image/p3.jpg' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 6</div>
+      <img src="{% static 'image/p4.jpg' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">5 / 6</div>
+      <img src="{% static 'image/p5.jpg' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">6 / 6</div>
+      <img src="{% static 'image/p6.jpg' %}" style="width:100%">
+    </div>
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+  </script>
+
+<a href="http://localhost:8501/">Records Analysis</a>
+  <h1 style="border: 2px solid black;"> Ready to fight for your own Dignity.</h1>
+
+
+  <h3 style="border: 2px solid black;">Promoting safety for women</h3>
+  <p>Violence and discrimination can blight
+    women’s lives and hold them back from playing
+    a full part in the workplace, society and the
+    economy. We’re taking action to improve
+    women’s rights and safety in the
+    communities in which we operate.</p>
+
+  <h3 style="border: 2px solid black;">Safe working cultures, stronger communities</h3>
+  <p>We’re committed to respecting and promoting women’s rights, which includes the right to safety of women and girls.
+    1 in 3 Women have suffered physical or sexual violence in their lifetimeHarassment is one of the eight salient
+    human rights issues we’ve identifiedfor our business. Women have the rightto be free from violence, harassment
+    and discrimination and removing the barriers of an unsafe environment can help women fulfil their potential as
+    individuals and as contributors to work,communities and economies. But the
+    <a href="https://www.who.int/en/news-room/fact-sheets/detail/violence-against-women"> World Health Organization
+      estimates </a>
+    that about 1 in 3 (35%) of women worldwide have experienced either physical and/or sexual intimate
+    partner violence or non-partner sexual violence in their lifetime.
+  </p>
+
+
+</body>
+
+</html>
